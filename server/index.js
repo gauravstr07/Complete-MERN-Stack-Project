@@ -1,28 +1,17 @@
 const express = require("express");
-const mongoose = require("mongoose");
+require("./db/config");
+const User = require("./db/User");
 
 const app = express();
+app.use(express.json());
 const port = 5000;
 
-const connectDB = async () => {
-  try {
-    console.log("Connected to database🤖");
-    mongoose.connect("mongodb://localhost:27017/e-comm");
-    const productSchema = new mongoose.Schema({});
-    const product = mongoose.model("products", productSchema);
-    const data = await product.find();
-    console.log(data);
-  } catch (error) {
-    console.log("Something went wrong in DB connection😪" + error);
-  }
-};
-
-connectDB();
-
-app.get("/", (req, res) => {
-  res.send(`Server running on port ${port}`);
+app.post("/register", async (req, res) => {
+  let user = new User(req.body);
+  let result = await user.save();
+  res.send(result);
 });
 
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server running on port ${port}🤖`);
 });
