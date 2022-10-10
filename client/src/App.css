@@ -3,6 +3,54 @@
   padding: 10px;
 }
 
+.nav-ul li a{
+  color: #fff;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.nav-ul {
+  padding: 5px;
+  margin: 0;
+  background-color: #15202b;
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color: #15202b;
+  color: #fff;
+}
+
+.register{
+  margin-left: 38%;
+}
+
+.inputBox{
+  display: block;
+  margin: 25px;
+  padding: 7px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.appbutton {
+  background: #1d2a3d;
+    border: 1px solid #1d2a3d;
+    color: #fff;
+    font-size: 15px;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    margin: 25px;
+    padding: 7px;
+    width: 300px;
+
+}
 
 
 @media (prefers-reduced-motion: no-preference) {
