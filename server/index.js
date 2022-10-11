@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 require("./db/config");
 const User = require("./db/User");
-const Product =require('./db/Product')
+const Product = require("./db/Product");
 
 const app = express();
 app.use(express.json());
@@ -32,13 +32,22 @@ app.post("/login", async (req, res) => {
   }
 });
 
-
 // Add Product
-app.post("/add-product", async(req, res) => {
-    let product = new Product(req.body);
-    let result = await product.save();
-    res.send(result);
-})
+app.post("/add-product", async (req, res) => {
+  let product = new Product(req.body);
+  let result = await product.save();
+  res.send(result);
+});
+
+app.get("/products", async(req, res) => {
+  let product = await Product.find();
+  if(product.length > 0){
+    res.send(product);
+  }else{
+    res.send({result: "No Products Found"})
+  }
+  
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}🤖`);
