@@ -60,6 +60,16 @@
 
 }
 
+.nav-right{
+  text-align: right;
+}
+
+.NavLogo{
+  width: 66px;
+  float: left;
+  
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
