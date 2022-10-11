@@ -5,8 +5,14 @@ const AddProduct = () => {
   const [price, setPrice] = useState();
   const [category, setCategory] = useState();
   const [brand, setBrand] = useState();
+  const [error, setError] = useState(false);
 
   const addProduct = async () => {
+    if (!name || !price || !category || !brand) {
+      setError(true);
+      return false;
+    }
+
     const userId = JSON.parse(localStorage.getItem("user"))._id;
     let result = await fetch("http://localhost:5000/add-product", {
       method: "post",
@@ -32,6 +38,7 @@ const AddProduct = () => {
           type="text"
           placeholder="Enter product name"
         />
+
         <input
           className="inputBox"
           onChange={(e) => {
@@ -59,9 +66,13 @@ const AddProduct = () => {
           type="text"
           placeholder="Enter product brand"
         />
+
         <button onClick={addProduct} className="appbutton">
           Add product
         </button>
+        { error && !name && !category && !price && !brand && (
+          <span className="invalid-input">invlid credentials</span>
+        )}
       </div>
     </>
   );
