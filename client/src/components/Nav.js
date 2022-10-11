@@ -10,7 +10,11 @@ const Nav = () => {
   };
   return (
     <div>
-      <img alt="logo" className="NavLogo" src="https://i.pinimg.com/originals/de/db/d3/dedbd35fd523ad115ef6af9fd1b82a00.gif" />
+      <img
+        alt="logo"
+        className="NavLogo"
+        src="https://i.pinimg.com/originals/de/db/d3/dedbd35fd523ad115ef6af9fd1b82a00.gif"
+      />
       {auth ? (
         <ul className="nav-ul">
           <li>
